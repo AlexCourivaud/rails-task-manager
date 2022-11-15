@@ -2,7 +2,9 @@
 
 <h2><%= @tasks.title %></h2>
 <%= @tasks.details %>
-
+<p>
+<%= link_to "edit a new task :", edit_path %>
+</p>
 <p>
 <%= link_to "go back to list", list_path %>
 </p>

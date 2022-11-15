@@ -1,4 +1,4 @@
-<H1>oui
+<H1>Tasks List
 </H1>
 
 <ul>
@@ -6,9 +6,13 @@
     <li><%= task.id %>
     <%= link_to task.title, task_path(task) %>
     <%= task.completed %>
+      <%= link_to "delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
 
     </li>
   <% end %>
 </ul>
+<p>
+<%= link_to "add a new task", new_path %>
+</p>
 
 <%= link_to "go back to index", root_path %>

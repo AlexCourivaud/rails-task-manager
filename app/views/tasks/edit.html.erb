@@ -1,0 +1,15 @@
+<H1>Edit task</H1>
+<%= @tasks.inspect %>
+
+<%= form_with model: @tasks do |f| %>
+  <%= f.label "change the title" %>
+  <%= f.text_field :title %>
+<p>
+  <%= f.label "change the details" %>
+  <%= f.text_field :details %>
+</p>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "display the list", list_path %>

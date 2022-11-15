@@ -1,7 +1,5 @@
 class TasksController < ApplicationController
 
-  def index
-  end
 
   def list
     @tasks = Task.all
@@ -11,5 +9,39 @@ class TasksController < ApplicationController
     @tasks = Task.find(params[:id])
   end
 
+  def new
+    @tasks = Task.new
+  end
+
+  def create
+    @tasks = Task.new(task_params)
+    @tasks.save
+
+    # redirect_to restaurant_path(@restaurant)
+    redirect_to list_path
+  end
+
+
+  def edit
+    @tasks = Task.find(params[:id])
+  end
+
+  def update
+    @tasks = Task.find(params[:id])
+    @tasks.update(task_params)
+    redirect_to list_path
+  end
+
+  def destroy
+    @tasks = Task.find(params[:id])
+    @tasks.destroy
+    redirect_to list_path
+  end
+
+private
+
+  def task_params
+    params.require(:task).permit(:title, :details, :completed)
+  end
 
 end
