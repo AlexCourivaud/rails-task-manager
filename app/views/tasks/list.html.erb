@@ -1,0 +1,14 @@
+<H1>oui
+</H1>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= task.id %>
+    <%= link_to task.title, task_path(task) %>
+    <%= task.completed %>
+
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "go back to index", root_path %>
